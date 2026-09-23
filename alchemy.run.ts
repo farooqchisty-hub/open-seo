@@ -207,7 +207,11 @@ const resolveSelfHostAccess = (
       }).pipe(
         Effect.catchTag("OrganizationNotFound", () => Effect.succeed(null)),
         Effect.catch((error) =>
-          Effect.die(
+          // An account that never opened Zero Trust reports Access as
+          // "not enabled" rather than having no organization.
+          String(error).includes("not_enabled")
+            ? Effect.succeed(null)
+            : Effect.die(
             new Error(
               `Could not read the Zero Trust organization: ${String(error)}${accessScopeHint}`,
             ),

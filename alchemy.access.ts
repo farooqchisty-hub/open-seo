@@ -70,7 +70,12 @@ export const emailAccessGate = (options: {
     const allow = yield* Cloudflare.Access.Policy(options.policyId, {
       name: options.policyName,
       decision: "allow",
-      include: options.emails.map((email) => ({ email: { email } })),
+      // "@example.com" entries allow a whole email domain.
+      include: options.emails.map((email) =>
+        email.startsWith("@")
+          ? { emailDomain: { domain: email.slice(1) } }
+          : { email: { email } },
+      ),
     });
     return yield* Cloudflare.Access.Application(options.applicationId, {
       type: "self_hosted",

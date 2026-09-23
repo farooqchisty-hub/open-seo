@@ -428,6 +428,9 @@ export default Alchemy.Stack(
       name: workerName(stage),
       // Prod serves the real domains; the zone is inferred from the hostname.
       domain: prod ? ["app.openseo.so", "www.app.openseo.so"] : undefined,
+      // WORKERS_DEV=off hides the workers.dev URL when another front door
+      // (a custom domain or a Pages proxy) serves the app.
+      url: (yield* optionalVar("WORKERS_DEV")) !== "off",
       // Prebuilt worker from `vite build` (@cloudflare/vite-plugin). The entry
       // exports the DO + WorkflowEntrypoint classes (re-exported by
       // src/server.ts), which `bundle: false` requires. Sibling chunks under
@@ -527,6 +530,6 @@ export default Alchemy.Stack(
       Alchemy.RemovalPolicy.retain(prod),
     );
 
-    return { url: app.url.as<string>() };
+    return { url: app.url ? app.url.as<string>() : "(workers.dev URL off)" };
   }),
 );

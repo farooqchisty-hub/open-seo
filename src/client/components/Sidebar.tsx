@@ -46,7 +46,7 @@ const navItemActiveProps = {
   // Keep the active tint on hover so the active item does not fall back to the
   // lighter hover background of navItemClass.
   className:
-    "bg-base-300/50 hover:bg-base-300/50 font-medium text-base-content",
+    "bg-accent/60 hover:bg-accent/60 font-medium text-accent-content! hover:text-accent-content! dark:bg-accent dark:hover:bg-accent",
 };
 
 function SidebarNavLink({
@@ -128,9 +128,21 @@ export function Sidebar({ projectId, onNavigate, onClose }: SidebarProps) {
         <Link
           to="/"
           onClick={onNavigate}
-          className="text-base font-semibold text-base-content"
+          className="flex items-center gap-2 text-base font-semibold text-base-content"
         >
-          OpenSEO
+          <img
+            src="/brand/brevo-logo.svg"
+            alt="Brevo"
+            className="h-5 w-auto dark:hidden"
+          />
+          <img
+            src="/brand/brevo-logo-mint.svg"
+            alt="Brevo"
+            className="hidden h-5 w-auto dark:block"
+          />
+          <span className="rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-content">
+            SEO
+          </span>
         </Link>
         {onClose ? (
           <button

@@ -19,33 +19,66 @@
   exclude: properties;
 }
 
-/* Light theme */
+/* Brevo brand fonts (Brand Guidelines v1.0): Inter for UI text, Tomato
+   Grotesk SemiBold for headings. */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tomato Grotesk";
+  src: url("/fonts/TomatoGrotesk-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Tomato Grotesk", "Inter", ui-sans-serif, sans-serif;
+}
+
+/* Brevo light theme. Forest Green #0B996E primary, Mint #C0FFA5 accent,
+   Charcoal #1B1B1B text, Brevo neutrals for surfaces. */
 @plugin "daisyui/theme" {
   name: "openseo";
   default: true;
   prefersdark: false;
   color-scheme: light;
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(97% 0 0);
-  --color-base-300: oklch(92% 0 0);
-  --color-base-content: oklch(20% 0 0);
-  --color-primary: oklch(50% 0.12 262);
-  --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(55% 0.15 145);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(50% 0.12 262);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(25% 0 0);
-  --color-neutral-content: oklch(100% 0 0);
-  --color-info: oklch(70% 0.15 230);
-  --color-info-content: oklch(100% 0 0);
-  --color-success: oklch(65% 0.18 145);
-  --color-success-content: oklch(100% 0 0);
-  --color-warning: oklch(80% 0.15 80);
-  --color-warning-content: oklch(100% 0 0);
-  --color-error: oklch(65% 0.2 25);
-  --color-error-content: oklch(100% 0 0);
-  --radius-selector: 0.5rem;
+  --color-base-100: #ffffff;
+  --color-base-200: #f4f4f4;
+  --color-base-300: #e3e3e3;
+  --color-base-content: #1b1b1b;
+  --color-primary: #0b996e;
+  --color-primary-content: #ffffff;
+  --color-secondary: #1b1b1b;
+  --color-secondary-content: #ffffff;
+  --color-accent: #c0ffa5;
+  --color-accent-content: #1b1b1b;
+  --color-neutral: #1b1b1b;
+  --color-neutral-content: #ffffff;
+  --color-info: #5a57c4;
+  --color-info-content: #ffffff;
+  --color-success: #0b996e;
+  --color-success-content: #ffffff;
+  --color-warning: #f5b841;
+  --color-warning-content: #1b1b1b;
+  --color-error: #d9344a;
+  --color-error-content: #ffffff;
+  --radius-selector: 1rem;
   --radius-field: 0.5rem;
   --radius-box: 0.75rem;
   --size-selector: 0.25rem;
@@ -55,32 +88,32 @@
   --noise: 0;
 }
 
-/* Dark theme - auto-activates via prefers-color-scheme */
+/* Brevo dark theme - auto-activates via prefers-color-scheme */
 @plugin "daisyui/theme" {
   name: "openseo-dark";
   prefersdark: true;
   color-scheme: dark;
-  --color-base-100: oklch(18% 0 0);
-  --color-base-200: oklch(12% 0 0);
-  --color-base-300: oklch(27% 0 0);
-  --color-base-content: oklch(92% 0 0);
-  --color-primary: oklch(66% 0.12 262);
-  --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(60% 0.15 145);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(66% 0.12 262);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(85% 0 0);
-  --color-neutral-content: oklch(20% 0 0);
-  --color-info: oklch(70% 0.15 230);
-  --color-info-content: oklch(100% 0 0);
-  --color-success: oklch(65% 0.18 145);
-  --color-success-content: oklch(100% 0 0);
-  --color-warning: oklch(80% 0.15 80);
-  --color-warning-content: oklch(100% 0 0);
-  --color-error: oklch(65% 0.2 25);
-  --color-error-content: oklch(100% 0 0);
-  --radius-selector: 0.5rem;
+  --color-base-100: #1f1f1f;
+  --color-base-200: #151515;
+  --color-base-300: #333333;
+  --color-base-content: #f4f4f4;
+  --color-primary: #13b584;
+  --color-primary-content: #ffffff;
+  --color-secondary: #f4f4f4;
+  --color-secondary-content: #1b1b1b;
+  --color-accent: #c0ffa5;
+  --color-accent-content: #1b1b1b;
+  --color-neutral: #e3e3e3;
+  --color-neutral-content: #1b1b1b;
+  --color-info: #9d9bf0;
+  --color-info-content: #1b1b1b;
+  --color-success: #13b584;
+  --color-success-content: #ffffff;
+  --color-warning: #f5b841;
+  --color-warning-content: #1b1b1b;
+  --color-error: #f06478;
+  --color-error-content: #1b1b1b;
+  --radius-selector: 1rem;
   --radius-field: 0.5rem;
   --radius-box: 0.75rem;
   --size-selector: 0.25rem;
@@ -88,6 +121,18 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
+}
+
+/* Brevo buttons are pills; headings use the brand display face. */
+.btn:not(.btn-square):not(.btn-circle) {
+  border-radius: 9999px;
+}
+h1,
+h2,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 html,

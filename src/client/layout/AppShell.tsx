@@ -180,8 +180,23 @@ function MobileTopBar({
       >
         <Menu className="h-5 w-5" />
       </button>
-      <Link to="/" className="ml-1 font-semibold text-base-content">
-        OpenSEO
+      <Link
+        to="/"
+        className="ml-1 flex items-center gap-2 font-semibold text-base-content"
+      >
+        <img
+          src="/brand/brevo-logo.svg"
+          alt="Brevo"
+          className="h-5 w-auto dark:hidden"
+        />
+        <img
+          src="/brand/brevo-logo-mint.svg"
+          alt="Brevo"
+          className="hidden h-5 w-auto dark:block"
+        />
+        <span className="rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-content">
+          SEO
+        </span>
       </Link>
     </div>
   );

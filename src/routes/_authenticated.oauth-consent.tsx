@@ -74,7 +74,7 @@ function OAuthConsentPage() {
       <div className="flex flex-col items-center text-center">
         <img
           src="/transparent-logo.png"
-          alt="OpenSEO"
+          alt="Brevo SEO"
           className="size-10 rounded-lg"
         />
         <h1 className="mt-5 text-xl font-semibold">Authorize MCP access</h1>

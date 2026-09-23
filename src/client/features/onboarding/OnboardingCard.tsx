@@ -12,8 +12,10 @@ export function OnboardingCard({
   return (
     <div className="w-full max-w-xl py-8">
       <div className="flex items-center justify-center gap-2 text-sm font-semibold">
-        <img src="/transparent-logo.png" alt="" className="size-7" />
-        OpenSEO
+        <img src="/brand/brevo-logo.svg" alt="Brevo" className="h-6 w-auto" />
+        <span className="rounded-full bg-accent px-2 py-0.5 text-xs text-accent-content">
+          SEO
+        </span>
       </div>
       <main className="mt-8 rounded-2xl border border-base-300 bg-base-100 p-6 shadow-sm md:mt-12 md:p-10">
         <div
